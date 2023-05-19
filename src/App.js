@@ -1,8 +1,19 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Navbar } from "./components/navbar/Navbar";
+import { Footer } from "./components/footer/Footer";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
+  );
 }
 
 export default App;
