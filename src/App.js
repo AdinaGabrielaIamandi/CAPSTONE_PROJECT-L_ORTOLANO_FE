@@ -1,13 +1,13 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Navbar } from "./components/navbar/Navbar";
+import { NavbarTop } from "./components/navbar/NavbarTop";
 import { Footer } from "./components/footer/Footer";
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
+      <NavbarTop />
       <Routes>
         <Route />
       </Routes>
