@@ -5,6 +5,7 @@ import { ImCart } from "react-icons/im";
 import Logo from "../../images/logo.png";
 import { useEffect, useState } from "react";
 import { FiMenu } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 export const NavbarTop = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -25,7 +26,7 @@ export const NavbarTop = () => {
     <Navbar
       bg="white"
       expand="lg"
-      className="d-flex align-items-center justify-content-evenly p-0 mb-4 myNavbar flex-nowrap"
+      className="d-flex align-items-center justify-content-evenly p-0 mb-5 myNavbar flex-nowrap"
     >
       <Image src={Logo} style={{ cursor: "pointer" }} className="logoNav d-flex" alt="l'ortolano logo" />
       <Form className="ms-1 search d-flex custom-control-input">
@@ -44,10 +45,16 @@ export const NavbarTop = () => {
           <Dropdown.Toggle variant="success" id="dropdown-basic" className="bottoneMenu">
             <FiMenu />
           </Dropdown.Toggle>
-          <Dropdown.Menu>
-            <Dropdown.Item className="dorpColor">Home</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Login</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Tutti i prodotti</Dropdown.Item>
+          <Dropdown.Menu className="text-decoration-none">
+            <Link to="/" className="dorpColor">
+              <Dropdown.Item className="">Home</Dropdown.Item>
+            </Link>
+            <Link>
+              <Dropdown.Item href="#/action-2">Login</Dropdown.Item>
+            </Link>
+            <Link>
+              <Dropdown.Item href="#/action-3">Tutti i prodotti</Dropdown.Item>
+            </Link>
           </Dropdown.Menu>
         </Dropdown>
         <ImCart className="iconaNavbar me-2" />

@@ -1,0 +1,33 @@
+.colorePrimaCard {
+  background-color: #aec68d;
+  width: 100%;
+}
+
+.primaCard {
+  font-size: 2em;
+  margin-bottom: 0;
+  font-weight: bold;
+  color: #525431;
+}
+
+.bordoCarosello {
+  border-color: #aec68d !important;
+}
+
+.contenitoreImmagine {
+  position: relative;
+}
+
+.contenitoreTesto {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  background-color: rgba(34, 34, 34, 0.422);
+  padding: 0.5em;
+  color: #fff;
+}
+
+.testoImmagine {
+  font-size: 1.5em;
+  font-weight: bold;
+}
