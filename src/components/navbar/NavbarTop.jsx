@@ -26,7 +26,7 @@ export const NavbarTop = () => {
     <Navbar
       bg="white"
       expand="lg"
-      className="d-flex align-items-center justify-content-evenly p-0 mb-5 myNavbar flex-nowrap"
+      className="d-flex align-items-center justify-content-evenly p-0 myNavbar flex-nowrap"
     >
       <Image src={Logo} style={{ cursor: "pointer" }} className="logoNav d-flex" alt="l'ortolano logo" />
       <Form className="ms-1 search d-flex custom-control-input">
@@ -49,7 +49,7 @@ export const NavbarTop = () => {
             <Link to="/" className="dorpColor">
               <Dropdown.Item className="">Home</Dropdown.Item>
             </Link>
-            <Link>
+            <Link to="/login">
               <Dropdown.Item href="#/action-2">Login</Dropdown.Item>
             </Link>
             <Link>

@@ -5,7 +5,7 @@ import { AiFillFacebook } from "react-icons/ai";
 
 export const Footer = () => {
   return (
-    <Container className="d-flex justify-content-evenly align-items-center mb-4">
+    <Container className="d-flex justify-content-evenly align-items-center mb-4 pt-3 border-top">
       <Row>
         <Col xs={12} md={6} lg={3} className="mb-3">
           <Row>

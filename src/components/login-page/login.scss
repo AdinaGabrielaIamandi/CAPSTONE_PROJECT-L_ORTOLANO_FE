@@ -1,0 +1,24 @@
+.backGroundFoto {
+  background-image: url("../../images/login.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#floatingInput,
+#floatingPassword {
+  background-color: #dedede;
+  border-radius: 10px;
+}
+
+.accedi {
+  color: #02a203;
+  font-weight: bold;
+}
+
+.bottoneLogin {
+  background-color: #7ed957;
+  border: none;
+  padding: 0.5em 1.5em;
+  border-radius: 10px;
+  font-weight: bold;
+}
