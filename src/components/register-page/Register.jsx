@@ -1,5 +1,4 @@
 import { Col, Container, Row } from "react-bootstrap";
-import "./register.scss";
 import { Link } from "react-router-dom";
 
 export const Register = () => {
@@ -16,30 +15,32 @@ export const Register = () => {
                 <button className="bottoneLogin btn-success">Accedi!</button>
               </Link>
             </div>
-            <div className="d-flex flex-column align-items-center mb-5">
-              <div class="form-floating mb-3">
-                <input type="email" class="form-control register" id="floatingInput" placeholder="Name" />
-                <label for="floatingInput" className="fst-italic d-flex align-items-center justify-content-center">
-                  Name
-                </label>
-              </div>
-              <div class="form-floating mb-3">
-                <input type="email" class="form-control register" id="floatingInput" placeholder="Username" />
-                <label for="floatingInput" className="fst-italic d-flex align-items-center justify-content-center">
-                  Userame
-                </label>
-              </div>
-              <div class="form-floating mb-3">
-                <input type="email" class="form-control register" id="floatingInput" placeholder="Email" />
-                <label for="floatingInput" className="fst-italic d-flex align-items-center justify-content-center">
-                  Email
-                </label>
-              </div>
-              <div class="form-floating">
-                <input type="password" class="form-control register" id="floatingPassword" placeholder="Password" />
-                <label for="floatingPassword" className="fst-italic d-flex align-items-center justify-content-center">
-                  Password
-                </label>
+            <div>
+              <div className="d-flex flex-column align-items-center mb-5">
+                <div class="form-floating mb-3">
+                  <input type="email" class="form-control register" id="floatingInput" placeholder="Name" />
+                  <label for="floatingInput" className="fst-italic d-flex align-items-center justify-content-center">
+                    Name
+                  </label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="email" class="form-control register" id="floatingInput" placeholder="Username" />
+                  <label for="floatingInput" className="fst-italic d-flex align-items-center justify-content-center">
+                    Userame
+                  </label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="email" class="form-control register" id="floatingInput" placeholder="Email" />
+                  <label for="floatingInput" className="fst-italic d-flex align-items-center justify-content-center">
+                    Email
+                  </label>
+                </div>
+                <div class="form-floating">
+                  <input type="password" class="form-control register" id="floatingPassword" placeholder="Password" />
+                  <label for="floatingPassword" className="fst-italic d-flex align-items-center justify-content-center">
+                    Password
+                  </label>
+                </div>
               </div>
             </div>
             <button className="bottoneLogin btn-success">Registrati</button>

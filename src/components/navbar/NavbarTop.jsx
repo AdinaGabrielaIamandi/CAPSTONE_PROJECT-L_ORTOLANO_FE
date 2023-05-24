@@ -28,7 +28,9 @@ export const NavbarTop = () => {
       expand="lg"
       className="d-flex align-items-center justify-content-evenly p-0 myNavbar flex-nowrap"
     >
-      <Image src={Logo} style={{ cursor: "pointer" }} className="logoNav d-flex" alt="l'ortolano logo" />
+      <Link to="/">
+        <Image src={Logo} style={{ cursor: "pointer" }} className="logoNav d-flex" alt="l'ortolano logo" />
+      </Link>
       <Form className="ms-1 search d-flex custom-control-input">
         <input
           style={{ width: windowWidth > 600 ? "400px" : "100%" }}
@@ -47,7 +49,7 @@ export const NavbarTop = () => {
           </Dropdown.Toggle>
           <Dropdown.Menu className="text-decoration-none">
             <Link to="/" className="dorpColor">
-              <Dropdown.Item className="">Home</Dropdown.Item>
+              <Dropdown.Item href="#/action-1">Home</Dropdown.Item>
             </Link>
             <Link to="/login">
               <Dropdown.Item href="#/action-2">Login</Dropdown.Item>
