@@ -1,13 +1,37 @@
-import { Carousel, Col, Container, Image, Row } from "react-bootstrap";
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
+import { Col, Container, Image, Row } from "react-bootstrap";
 import "./homePage.scss";
 import Orto from "../../images/orto.jpg";
 import CassetteMiste from "../../images/le-cassette-miste.jpg";
 import OfferteDiStagione from "../../images/offerte-di-stagione.jpg";
 import FruttaEVerdura from "../../images/frutta-e-verdura.jpg";
+import { SingleMerce } from "../singleCardMerce/SingleMerce";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getAllMerceAction } from "../../redux/action";
+import { Link } from "react-router-dom";
 
 export const HomePage = () => {
+  const dispatch = useDispatch();
+  const merci = useSelector((state) => state.lortolano.merci);
+  useEffect(() => {
+    dispatch(getAllMerceAction());
+  }, []);
+
+  const merciInOfferta = [...merci];
+  const merciRandom = [];
+  while (merciRandom.length < 4 && merciInOfferta.length > 0) {
+    const randomIndex = Math.floor(Math.random() * merciInOfferta.length);
+    const merceRandom = merciInOfferta[randomIndex];
+    merciRandom.push(merceRandom);
+    merciInOfferta.splice(randomIndex, 1);
+  }
+
+  const prodottiPiùVenduti = merci.slice(0, 8);
+
   return (
-    <Container className="pe-0 mb-5">
+    <Container className="mt-5 mb-5">
       <Row className="d-flex align-items-center justify-content-between mb-5 colorePrimaCard ">
         <Col xs={12} lg={8} className="d-flex justify-content-center">
           <p className="primaCard text-center p-2">
@@ -20,41 +44,14 @@ export const HomePage = () => {
         </Col>
       </Row>
       <Row className="row justify-content-center pb-5 border-bottom border-3 bordoCarosello mb-5">
-        <p className="primaCard text-center p-2">In offerta</p>
-        <Col xs={12} lg={7}>
-          <Carousel className="carosello">
-            <Carousel.Item>
-              <img className="d-block w-100" src={Orto} alt="First slide" style={{ height: "400px" }} />
-              <Carousel.Caption>
-                <h3>First slide label</h3>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img className="d-block w-100" src={Orto} alt="Second slide" style={{ height: "400px" }} />
-              <Carousel.Caption>
-                <h3>Second slide label</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img className="d-block w-100" src={Orto} alt="Third slide" style={{ height: "400px" }} />
-              <Carousel.Caption>
-                <h3>Third slide label</h3>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img className="d-block w-100" src={Orto} alt="First slide" style={{ height: "400px" }} />
-              <Carousel.Caption>
-                <h3>First slide label</h3>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
-        </Col>
+        <p className="primaCard text-center p-2 mb-4">In offerta</p>
+        <Row>
+          {merciRandom.map((merce) => (
+            <SingleMerce key={merce.id} merci={merce} />
+          ))}
+        </Row>
       </Row>
-      <Row className="border-bottom border-3 bordoCarosello mb-5 pb-5">
+      <Row className="border-bottom border-3 bordoCarosello my-5 pb-5">
         <Col xs={12} lg={4} className="d-flex justify-content-center align-items-center mb-3">
           <div className="contenitoreImmagine">
             <Image src={CassetteMiste} style={{ width: "100%" }} />
@@ -85,6 +82,19 @@ export const HomePage = () => {
             </Col>
           </Row>
         </Col>
+      </Row>
+      <Row>
+        <p className="primaCard text-center p-2">Prodotti più venduti</p>
+        <Row className="mt-3">
+          {prodottiPiùVenduti.map((prodotto) => (
+            <SingleMerce merci={prodotto} />
+          ))}
+        </Row>
+        <Row className="text-center m-2">
+          <Link to="/tutti-i-prodotti" className="fw-bold primaCard">
+            <p>Vedi tutti i prodotti!</p>
+          </Link>
+        </Row>
       </Row>
     </Container>
   );
