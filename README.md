@@ -1,3 +1,6 @@
+Progetto gestito da back-end: https://github.com/AdinaGabrielaIamandi/CAPSTONE_PROJECT-L_ORTOLANO_BE.git
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
