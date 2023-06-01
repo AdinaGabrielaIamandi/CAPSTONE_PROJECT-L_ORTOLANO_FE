@@ -1,99 +1,176 @@
-import { Col, Container, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Button, Col, Container, Row } from "react-bootstrap";
+import "./register.scss";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { postRegisterAction } from "../../redux/action";
+import { postUtenteAction } from "./../../redux/action/index";
 
 export const Register = () => {
+  const [registrazione, setRegistrazione] = useState();
+  const [utente, setUtente] = useState();
+  const dispatch = useDispatch();
+
   return (
-    <Container className="backGroundFoto mt-4">
-      {" "}
-      <Row className="text-center">
-        <Col xs={12} lg={5} className="d-flex flex-column justify-content-evenly mb-2 mt-2 p-5">
-          <div className="mt-4">
-            <p className="fs-1 accedi">Crea il tuo account</p>
-            <div className="d-flex justify-content-center align-items-center flex-wrap mb-4">
-              <p className="me-1 fs-5 mb-1">Sei già registrato?</p>
-              <Link to="/login">
-                <button className="bottoneLogin btn-success ms-1 mt-1">Accedi!</button>
-              </Link>
+    <Container className="backGroundFotoRegister mt-4 pb-4">
+      <Row className="d-flex flex-column align-items-center p-3">
+        <Col xs={12} md={6}>
+          <h3 className="text-center mb-5">I tuoi dati</h3>
+          <div className="d-flex flex-column justify-content-center">
+            <div class="form-floating mb-4">
+              <input
+                type="text"
+                className="form-control login"
+                id="floatingInput"
+                placeholder="Nome*"
+                onChange={(e) => {
+                  setRegistrazione((prev) => ({ ...prev, name: e.target.value }));
+                  setUtente((prev) => ({ ...prev, nome: e.target.value }));
+                }}
+              />
+              <label for="floatingInput" className="fst-italic d-flex align-items-center justify-content-center">
+                Nome*
+              </label>
             </div>
-            <div className="d-flex justify-content-center flex-wrap">
-              <div className="d-flex flex-column align-items-center mb-3 mx-1">
-                <div className="form-floating mb-3">
-                  <input type="email" className="form-control register" id="floatingInput" placeholder="Name" />
-                  <label for="floatingInput" className="fst-italic d-flex align-items-center justify-content-center">
-                    Name
-                  </label>
-                </div>
-                <div className="form-floating mb-3">
-                  <input type="email" className="form-control register" id="floatingInput" placeholder="Username" />
-                  <label for="floatingInput" className="fst-italic d-flex align-items-center justify-content-center">
-                    Userame
-                  </label>
-                </div>
-                <div className="form-floating mb-3">
-                  <input type="email" className="form-control register" id="floatingInput" placeholder="Email" />
-                  <label for="floatingInput" className="fst-italic d-flex align-items-center justify-content-center">
-                    Email
-                  </label>
-                </div>
-                <div className="form-floating">
-                  <input
-                    type="password"
-                    className="form-control register"
-                    id="floatingPassword"
-                    placeholder="Password"
-                  />
-                  <label for="floatingPassword" className="fst-italic d-flex align-items-center justify-content-center">
-                    Password
-                  </label>
-                </div>
-              </div>
-              <div className="d-flex flex-column align-items-center mb-5 mx-1">
-                <div className="form-floating mb-3">
-                  <input type="text" className="form-control register" id="floatingPassword" placeholder="Cognome" />
-                  <label for="floatingPassword" className="fst-italic d-flex align-items-center justify-content-center">
-                    Cognome
-                  </label>
-                </div>
-                <div className="form-floating mb-3">
-                  <input type="text" className="form-control register" id="floatingPassword" placeholder="Indirizzo" />
-                  <label for="floatingPassword" className="fst-italic d-flex align-items-center justify-content-center">
-                    Indirizzo
-                  </label>
-                </div>
-                <div className="form-floating mb-3">
-                  <input
-                    type="text"
-                    className="form-control register"
-                    id="floatingPassword"
-                    placeholder="Partita IVA"
-                  />
-                  <label for="floatingPassword" className="fst-italic d-flex align-items-center justify-content-center">
-                    Partita IVA
-                  </label>
-                </div>
-                <div className="form-floating mb-3">
-                  <input
-                    type="text"
-                    className="form-control register"
-                    id="floatingPassword"
-                    placeholder="Ragione sociale"
-                  />
-                  <label for="floatingPassword" className="fst-italic d-flex align-items-center justify-content-center">
-                    Ragione sociale
-                  </label>
-                </div>
-                <div className="form-floating mb-3">
-                  <input type="text" className="form-control register" id="floatingPassword" placeholder="Pec" />
-                  <label for="floatingPassword" className="fst-italic d-flex align-items-center justify-content-center">
-                    Pec
-                  </label>
-                </div>
-              </div>
+            <div className="form-floating mb-4">
+              <input
+                type="text"
+                className="form-control login"
+                id="floatingInput"
+                placeholder="Cognome"
+                onChange={(e) => {
+                  setUtente((prev) => ({ ...prev, cognome: e.target.value }));
+                }}
+              />
+              <label for="floatingPassword" className="fst-italic d-flex align-items-center justify-content-center">
+                Cognome*
+              </label>
             </div>
-            <button className="bottoneLogin btn-success">Registrati</button>
+            <div className="form-floating mb-4">
+              <input
+                type="text"
+                className="form-control login"
+                id="floatingInput"
+                placeholder="Username"
+                onChange={(e) => {
+                  setRegistrazione((prev) => ({ ...prev, username: e.target.value }));
+                }}
+              />
+              <label for="floatingPassword" className="fst-italic d-flex align-items-center justify-content-center">
+                Username*
+              </label>
+            </div>
+            <div className="form-floating mb-4">
+              <input
+                type="text"
+                className="form-control login"
+                id="floatingInput"
+                placeholder="Indirizzo*"
+                onChange={(e) => {
+                  setUtente((prev) => ({ ...prev, indirizzo: e.target.value }));
+                }}
+              />
+              <label for="floatingPassword" className="fst-italic d-flex align-items-center justify-content-center">
+                Indirizzo*
+              </label>
+            </div>
+            <div className="form-floating mb-5">
+              <input
+                type="email"
+                className="form-control login"
+                id="floatingInput"
+                placeholder="Email*"
+                onChange={(e) => {
+                  setRegistrazione((prev) => ({ ...prev, email: e.target.value }));
+                  setUtente((prev) => ({ ...prev, email: e.target.value }));
+                }}
+              />
+              <label for="floatingPassword" className="fst-italic d-flex align-items-center justify-content-center">
+                Email*
+              </label>
+            </div>
+            <div className="form-floating mb-5">
+              <input
+                type="password"
+                className="form-control login"
+                id="floatingInput"
+                placeholder="Password*"
+                onChange={(e) => {
+                  setRegistrazione((prev) => ({ ...prev, password: e.target.value }));
+                }}
+              />
+              <label for="floatingPassword" className="fst-italic d-flex align-items-center justify-content-center">
+                Password*
+              </label>
+            </div>
+          </div>
+        </Col>
+        <Col xs={12} md={6}>
+          <div className="d-flex flex-column align-items-center justify-content-start">
+            <h3>Sei un'azienda?</h3>
+            <p>Inserisci qui i seguenti dati</p>
+          </div>
+          <div className="d-flex flex-column justify-content-center">
+            <div class="form-floating mb-4">
+              <input
+                type="text"
+                className="form-control login"
+                id="floatingInput"
+                placeholder="Partita IVA"
+                onChange={(e) => {
+                  setUtente((prev) => ({ ...prev, partitaIVA: e.target.value }));
+                }}
+              />
+              <label for="floatingInput" className="fst-italic d-flex align-items-center justify-content-center">
+                Partita IVA
+              </label>
+            </div>
+            <div className="form-floating mb-4">
+              <input
+                type="text"
+                className="form-control login"
+                id="floatingInput"
+                placeholder="Ragione sociale"
+                onChange={(e) => {
+                  setUtente((prev) => ({ ...prev, ragioneSociale: e.target.value }));
+                }}
+              />
+              <label for="floatingPassword" className="fst-italic d-flex align-items-center justify-content-center">
+                Ragione sociale
+              </label>
+            </div>
+            <div className="form-floating mb-4">
+              <input
+                type="text"
+                className="form-control login"
+                id="floatingInput"
+                placeholder="Pec"
+                onChange={(e) => {
+                  setUtente((prev) => ({ ...prev, pec: e.target.value }));
+                }}
+              />
+              <label for="floatingPassword" className="fst-italic d-flex align-items-center justify-content-center">
+                Pec
+              </label>
+            </div>
           </div>
         </Col>
       </Row>
+      <Row className="d-flex flex-column align-items-center p-3">
+        <Col xs={12} md={6}>
+          <div className="d-flex justify-content-center">
+            <Button
+              className="bottoneLogin btn-success mb-5"
+              onClick={() => {
+                dispatch(postRegisterAction(registrazione));
+                dispatch(postUtenteAction(utente));
+              }}
+            >
+              Registrati
+            </Button>
+          </div>
+        </Col>
+      </Row>
+      <small className="text-secondary fst-italic">* Campi obbligatori</small>
     </Container>
   );
 };

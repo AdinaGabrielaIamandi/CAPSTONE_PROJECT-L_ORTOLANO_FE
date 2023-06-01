@@ -14,6 +14,69 @@ export const removeFromCarrello = (props) => ({
   payload: props
 });
 
+export const postRegisterAction = (props) => {
+  return async (dispatch) => {
+    try {
+      let res = await fetch(`http://localhost:8080/api/auth/register`, {
+        method: "POST",
+        body: JSON.stringify(props),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      if (res.ok) {
+        return await res.json();
+      } else {
+        console.log("error");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+export const postLoginAction = (props) => {
+  return async (dispatch) => {
+    try {
+      let res = await fetch(`http://localhost:8080/api/auth/login`, {
+        method: "POST",
+        body: JSON.stringify(props),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      if (res.ok) {
+        return await res.json();
+      } else {
+        console.log("error");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const postUtenteAction = (props) => {
+  return async (dispatch) => {
+    try {
+      let res = await fetch(`http://localhost:8080/api/utente`, {
+        method: "POST",
+        body: JSON.stringify(props),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LORTOLANO
+        }
+      });
+      if (res.ok) {
+        return await res.json();
+      } else {
+        console.log("error");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
 export const getAllMerceAction = () => {
   return async (dispatch) => {
     try {
@@ -57,3 +120,47 @@ export const getSingoloProdottoAction = (props) => {
     }
   };
 };
+
+/*export const postVenditoreAction = (props) => {
+  return async (dispatch) => {
+    try {
+      let res = await fetch(`http://localhost:8080/api/venditori`, {
+        method: "POST",
+        body: JSON.stringify(props),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LORTOLANO
+        }
+      });
+      if (res.ok) {
+        return await res.json();
+      } else {
+        console.log("error");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const postProdottoAction = (props) => {
+  return async (dispatch) => {
+    try {
+      let res = await fetch(`http://localhost:8080/api/merci`, {
+        method: "POST",
+        body: JSON.stringify(props),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LORTOLANO
+        }
+      });
+      if (res.ok) {
+        return await res.json();
+      } else {
+        console.log("error");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};*/

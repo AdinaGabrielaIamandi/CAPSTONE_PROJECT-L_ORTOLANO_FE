@@ -18,7 +18,7 @@ export const ModalSearch = (props) => {
                 <div className="mb-4 mt-3">
                   <p className="ms-3 mb-0 fw-bold text-dark me-5">{merce.tipoMerce}</p>
                   <small className="text-secondary ms-5">
-                    Venditore: {merce.venditore.nome} {merce.venditore.cognome}
+                    Venditore: {merce.utente.nome} {merce.utente.cognome}
                   </small>
                 </div>
               </Link>

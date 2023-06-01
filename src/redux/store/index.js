@@ -3,7 +3,6 @@ import mainReducer from "../reducer";
 import storage from "redux-persist/lib/storage";
 import { persistStore, persistReducer } from "redux-persist";
 import { encryptTransform } from "redux-persist-transform-encrypt";
-import { cartReducer } from "../reducer/cartReducer";
 
 const persistConfig = {
   key: "root",
@@ -12,8 +11,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  lortolano: mainReducer,
-  cart: cartReducer
+  lortolano: mainReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

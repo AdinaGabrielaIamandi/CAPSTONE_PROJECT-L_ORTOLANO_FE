@@ -2,7 +2,7 @@ import "./navbarTop.scss";
 import { Dropdown, Form, Image } from "react-bootstrap";
 import Navbar from "react-bootstrap/Navbar";
 import { ImCart } from "react-icons/im";
-import Logo from "../../images/logo.png";
+import Logo from "../../images/logo-no-background.png";
 import { useEffect, useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import { Link } from "react-router-dom";
@@ -76,19 +76,22 @@ export const NavbarTop = () => {
               <FiMenu />
             </Dropdown.Toggle>
             <Dropdown.Menu className="text-decoration-none">
-              <Link to="/" className="dorpColor">
+              <Link to="/" className="text-decoration-none coloreNavbar">
                 <Dropdown.Item href="#/action-1">Home</Dropdown.Item>
               </Link>
-              <Link to="/login">
+              <Link to="/login" className="text-decoration-none coloreNavbar">
                 <Dropdown.Item href="#/action-2">Login</Dropdown.Item>
               </Link>
-              <Link to="/tutti-i-prodotti">
+              <Link to="/tutti-i-prodotti" className="text-decoration-none coloreNavbar">
                 <Dropdown.Item href="#/action-3">Tutti i prodotti</Dropdown.Item>
+              </Link>
+              <Link to="/dati-prodotto" className="text-decoration-none coloreNavbar">
+                <Dropdown.Item href="#/action-3">Vendi qui i tuoi prodotti</Dropdown.Item>
               </Link>
             </Dropdown.Menu>
           </Dropdown>
           <ImCart className="iconaNavbar me-2" />
-          <Link to="/carrello" className="text-decoration-none text-black">
+          <Link to="/carrello" className="text-decoration-none coloreNavbar">
             <p className="mb-0 fw-bold">Carrello</p>
           </Link>
         </div>

@@ -27,7 +27,7 @@ const mainReducer = (state = initialState, action) => {
     case REMOVE_FROM_CARRELLO:
       return {
         ...state,
-        list: [...state.listCarrello, state.listCarrello.filter((el) => el !== action.payload)]
+        listCarrello: state.listCarrello.filter((el) => el !== action.payload)
       };
     default:
       return state;

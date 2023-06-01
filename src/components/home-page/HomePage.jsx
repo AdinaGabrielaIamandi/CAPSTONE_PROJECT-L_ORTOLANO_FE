@@ -31,20 +31,20 @@ export const HomePage = () => {
   const prodottiPiùVenduti = merci.slice(0, 8);
 
   return (
-    <Container className="mt-5 mb-5">
-      <Row className="d-flex align-items-center justify-content-between mb-5 colorePrimaCard ">
+    <Container className="mt-5 mb-5 d-flex flex-column justify-content-center">
+      <Row className="d-flex align-items-center justify-content-center mb-5 colorePrimaCard">
         <Col xs={12} lg={8} className="d-flex justify-content-center">
-          <p className="primaCard text-center p-2">
+          <p className="primaCard text-center pt-2 pb-2 pe-0">
             Acquista la tua frutta e verdura online direttamente dai migliori produttori locali. Prodotti km 0 per uno
             stile di vita sano ed ecologico!
           </p>
         </Col>
-        <Col xs={12} lg={4} className="d-flex justify-content-center">
+        <Col xs={12} lg={4} className="d-flex justify-content-center p-0">
           <Image src={Orto} style={{ width: "100%" }} />
         </Col>
       </Row>
       <Row className="row justify-content-center pb-5 border-bottom border-3 bordoCarosello mb-5">
-        <p className="primaCard text-center p-2 mb-4">In offerta</p>
+        <p className="primaCard text-center mb-4">In offerta</p>
         <Row>
           {merciRandom.map((merce) => (
             <SingleMerce key={merce.id} merci={merce} />
@@ -83,11 +83,11 @@ export const HomePage = () => {
           </Row>
         </Col>
       </Row>
-      <Row>
-        <p className="primaCard text-center p-2">Prodotti più venduti</p>
-        <Row className="mt-3">
+      <Row className="d-flex justify-content-center">
+        <p className="primaCard text-center">Prodotti più venduti</p>
+        <Row className="mt-3 d-flex justify-content-center">
           {prodottiPiùVenduti.map((prodotto) => (
-            <SingleMerce merci={prodotto} />
+            <SingleMerce merci={prodotto} key={prodotto.id} />
           ))}
         </Row>
         <Row className="text-center m-2">

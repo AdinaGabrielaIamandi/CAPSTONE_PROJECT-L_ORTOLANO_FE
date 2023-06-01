@@ -10,22 +10,27 @@ import { Register } from "./components/register-page/Register";
 import { AllProdotti } from "./components/tuttiProdotti/AllProdotti";
 import { Carrello } from "./components/carrello/Carrello";
 import { SingleMerce } from "./components/singleCardMerce/SingleMerce";
+import { VenditaProdotto } from "./components/vendita/VenditaProdotto";
+import { AuthContextProvider } from "./components/login-page/AuthContextProvider";
 
 function App() {
   return (
     <BrowserRouter>
-      <Container fluid>
-        <NavbarTop />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/tutti-i-prodotti" element={<AllProdotti />} />
-          <Route path="/prodotti-cercati/:id" element={<SingleMerce />} />
-          <Route path="/carrello" element={<Carrello />} />
-        </Routes>
-        <Footer />
-      </Container>
+      <AuthContextProvider>
+        <Container fluid>
+          <NavbarTop />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/tutti-i-prodotti" element={<AllProdotti />} />
+            <Route path="/prodotti-cercati/:id" element={<SingleMerce />} />
+            <Route path="/carrello" element={<Carrello />} />
+            <Route path="/dati-prodotto" element={<VenditaProdotto />} />
+          </Routes>
+          <Footer />
+        </Container>
+      </AuthContextProvider>
     </BrowserRouter>
   );
 }

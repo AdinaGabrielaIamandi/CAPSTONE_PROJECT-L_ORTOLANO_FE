@@ -14,10 +14,8 @@ export const SingleMerce = (props) => {
   const singolaMerce = useSelector((state) => state.lortolano.singolaMerce);
   const allList = useSelector((state) => state.lortolano.listCarrello);
 
-  const isInCarrello = allList.includes(singolaMerce) || allList.includes(props?.merci);
-
-  console.log(isInCarrello);
-  console.log(allList);
+  const isInCarrello1 = allList.includes(singolaMerce);
+  const isInCarrello2 = allList.includes(props.merci);
 
   useEffect(() => {
     dispatch(getSingoloProdottoAction(params?.id));
@@ -32,17 +30,17 @@ export const SingleMerce = (props) => {
               <ProdottoImage src={singolaMerce?.tipoMerce} id={singolaMerce?.id} altezza={"150px"} />
               <Card.Body>
                 <Card.Title>{singolaMerce?.tipoMerce}</Card.Title>
-                <Card.Text>
-                  {singolaMerce?.venditore?.nome} {singolaMerce?.venditore?.cognome}
+                <Card.Text className="mb-0">
+                  {singolaMerce?.utente?.nome} {singolaMerce?.utente?.cognome}
                 </Card.Text>
-                <Card.Text>Quantità {singolaMerce?.quantità} kg</Card.Text>
-                <Card.Text>Prezzo {singolaMerce?.prezzoAlKg} €</Card.Text>
-                {isInCarrello ? (
-                  <p className="text-success fw-bold">Prodotto aggiunto</p>
+                <Card.Text className="mb-0">Quantità {singolaMerce?.quantità} kg</Card.Text>
+                <Card.Text className="mb-0">Prezzo {singolaMerce?.prezzoAlKg} €</Card.Text>
+                {isInCarrello1 ? (
+                  <p className="text-success fw-bold">Aggiunto al carrello!</p>
                 ) : (
                   <Button
                     variant="primary"
-                    className="bottoneLogin btn-success"
+                    className="bottoneLogin btn-success mt-4"
                     onClick={() => dispatch(addToCarrello(singolaMerce))}
                   >
                     Aggiungi al carrello
@@ -53,26 +51,26 @@ export const SingleMerce = (props) => {
           </Col>
         </Row>
       ) : (
-        <Col key={props.merci?.id} xs={12} md={4} lg={3}>
+        <Col key={props.merci?.id} xs={12} md={4} lg={3} className="d-flex justify-content-center">
           <Card className="my-3">
             <ProdottoImage
               src={props.merci?.tipoMerce}
               id={props.merci?.id}
               style={{ objectFit: "contain", aspectRatio: "1/1" }}
             />
-            <Card.Body>
+            <Card.Body className="d-flex flex-column justify-content-between">
               <Card.Title>{props.merci?.tipoMerce}</Card.Title>
-              <Card.Text>
-                {props.merci?.venditore.nome} {props.merci?.venditore.cognome}
+              <Card.Text className="mb-0">
+                {props.merci?.utente.nome} {props.merci?.utente.cognome}
               </Card.Text>
-              <Card.Text>Quantità {props.merci?.quantità} kg</Card.Text>
-              <Card.Text>Prezzo {props.merci?.prezzoAlKg} €</Card.Text>
-              {isInCarrello ? (
-                <p className="text-success fw-bold">Prodotto aggiunto</p>
+              <Card.Text className="mb-0">Quantità {props.merci?.quantità} kg</Card.Text>
+              <Card.Text className="mb-0">Prezzo {props.merci?.prezzoAlKg} €</Card.Text>
+              {isInCarrello2 ? (
+                <p className="text-success fw-bold">Aggiunto al carrello</p>
               ) : (
                 <Button
                   variant="primary"
-                  className="bottoneLogin btn-success"
+                  className="bottoneLogin btn-success mt-4"
                   onClick={() => dispatch(addToCarrello(props.merci))}
                 >
                   Aggiungi al carrello
