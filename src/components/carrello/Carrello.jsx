@@ -11,7 +11,6 @@ export const Carrello = () => {
   const list = useSelector((state) => state.lortolano.listCarrello);
   const somma = list.reduce((acc, obj) => acc + parseFloat(obj.prezzoAlKg.replace(",", ".")), 0);
   const { user } = useContext(AuthContext);
-  console.log(user);
 
   return (
     <Container className="my-5">

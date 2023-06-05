@@ -1,9 +1,10 @@
-import { ADD_TO_CARRELLO, GET_MERCE, GET_MERCE_PARTE_NOME, REMOVE_FROM_CARRELLO } from "./../action/index";
+import { ADD_TO_CARRELLO, GET_ID_ME, GET_MERCE, GET_MERCE_PARTE_NOME, REMOVE_FROM_CARRELLO } from "./../action/index";
 
 const initialState = {
   merci: [],
   singolaMerce: [],
-  listCarrello: []
+  listCarrello: [],
+  utenti: []
 };
 
 //const mainReducer = (state = initialState, action) => {
@@ -28,6 +29,11 @@ const mainReducer = (state = initialState, action) => {
       return {
         ...state,
         listCarrello: state.listCarrello.filter((el) => el !== action.payload)
+      };
+    case GET_ID_ME:
+      return {
+        ...state,
+        utenti: action.payload
       };
     default:
       return state;

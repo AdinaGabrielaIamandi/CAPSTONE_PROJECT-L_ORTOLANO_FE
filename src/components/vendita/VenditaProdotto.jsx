@@ -1,12 +1,19 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
 import "./vendita.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { postProdottoAction } from "./../../redux/action/index";
+import { getUtenteAction, postProdottoAction } from "./../../redux/action/index";
+import { useEffect } from "react";
 
 export const VenditaProdotto = () => {
   const dispatch = useDispatch();
   const [prodotto, setProdotto] = useState();
+
+  useEffect(() => {
+    dispatch(getUtenteAction());
+  }, []);
+  const utenti = useSelector((state) => state.lortolano.utenti);
+  console.log(utenti);
 
   return (
     <Container className="mt-3 mb-3 p-5 sfondoVendita">

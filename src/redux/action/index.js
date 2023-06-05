@@ -3,6 +3,7 @@ export const GET_FOTO = "GET_FOTO";
 export const GET_MERCE_PARTE_NOME = "GET_MERCE_PARTE_NOME";
 export const ADD_TO_CARRELLO = "ADD_TO_CARRELLO";
 export const REMOVE_FROM_CARRELLO = "REMOVE_FROM_CARRELLO";
+export const GET_ID_ME = "GET_ID_ME";
 
 export const addToCarrello = (props) => ({
   type: ADD_TO_CARRELLO,
@@ -70,6 +71,30 @@ export const postUtenteAction = (props) => {
       });
       if (res.ok) {
         return await res.json();
+      } else {
+        console.log("error");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const getUtenteAction = () => {
+  return async (dispatch) => {
+    try {
+      let res = await fetch(`http://localhost:8080/api/utente/id/81`, {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LORTOLANO
+        }
+      });
+      if (res.ok) {
+        let me = res.json();
+        dispatch({
+          type: GET_ID_ME,
+          payload: me
+        });
       } else {
         console.log("error");
       }
