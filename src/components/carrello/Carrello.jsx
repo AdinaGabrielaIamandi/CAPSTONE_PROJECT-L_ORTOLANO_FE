@@ -5,6 +5,7 @@ import { BsFillTrash3Fill } from "react-icons/bs";
 import { removeFromCarrello } from "../../redux/action";
 import AuthContext from "../login-page/AuthContextProvider";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 export const Carrello = () => {
   const dispatch = useDispatch();
@@ -37,8 +38,13 @@ export const Carrello = () => {
               </ListGroup>
             ))}
             <ListGroup className="my-2">
-              <ListGroup.Item>
-                <p className="mb-0 fw-bold fs-5">Totale: {somma} €</p>
+              <ListGroup.Item className=" py-4">
+                <p className="fw-bold fs-5">Totale: {somma} €</p>
+                <Link to="/conferma-ordine">
+                  <Button variant="success" className="bottoneLogin">
+                    Completa ordine
+                  </Button>
+                </Link>
               </ListGroup.Item>
             </ListGroup>
           </>

@@ -8,6 +8,10 @@ import { useEffect } from "react";
 export const VenditaProdotto = () => {
   const dispatch = useDispatch();
   const [prodotto, setProdotto] = useState();
+  const [showModal, setShowModal] = useState(false);
+  const setShowFunction = (el) => {
+    setShowModal(el);
+  };
 
   useEffect(() => {
     dispatch(getUtenteAction());

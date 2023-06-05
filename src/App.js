@@ -12,6 +12,7 @@ import { Carrello } from "./components/carrello/Carrello";
 import { SingleMerce } from "./components/singleCardMerce/SingleMerce";
 import { VenditaProdotto } from "./components/vendita/VenditaProdotto";
 import { AuthContextProvider } from "./components/login-page/AuthContextProvider";
+import { ModaleOrdine } from "./components/carrello/ModaleOrdine";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/prodotti-cercati/:id" element={<SingleMerce />} />
             <Route path="/carrello" element={<Carrello />} />
             <Route path="/dati-prodotto" element={<VenditaProdotto />} />
+            <Route path="/conferma-ordine" element={<ModaleOrdine />} />
           </Routes>
           <Footer />
         </Container>
